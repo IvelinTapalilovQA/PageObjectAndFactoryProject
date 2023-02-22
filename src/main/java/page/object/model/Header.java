@@ -1,4 +1,4 @@
-package pageObjectModel;
+package page.object.model;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -34,6 +34,14 @@ public class Header {
         WebElement logo = driver.findElement(By.id("homeIcon"));
         logo.click();
     }
+    public WebElement getLogo(){
+        return driver.findElement(By.id("homeIcon"));
+    }
+    public void clickableLogo(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.elementToBeClickable(getLogo()));
+    }
+
     public void logoutButton(){
         WebElement logoutButton = driver.findElement(By.cssSelector("#navbarColor01 > ul.navbar-nav.my-ml.d-none.d-md-block > li > a > i"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));

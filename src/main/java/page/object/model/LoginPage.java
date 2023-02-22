@@ -1,4 +1,4 @@
-package pageObjectModel;
+package page.object.model;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

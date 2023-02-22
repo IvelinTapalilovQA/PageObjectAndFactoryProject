@@ -1,19 +1,14 @@
-package pageObjectModelTest;
+package page.object.model.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.v85.profiler.model.Profile;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import pageObjectModel.Header;
-import pageObjectModel.HomePage;
-import pageObjectModel.LoginPage;
-import pageObjectModel.ProfilePage;
+import page.object.model.Header;
+import page.object.model.HomePage;
+import page.object.model.LoginPage;
+import page.object.model.ProfilePage;
 
 import java.time.Duration;
 

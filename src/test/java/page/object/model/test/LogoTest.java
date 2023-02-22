@@ -1,15 +1,11 @@
-package pageObjectModelTest;
+package page.object.model.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
-import pageObjectModel.*;
+import page.object.model.*;
 
 import java.time.Duration;
 
@@ -37,18 +33,17 @@ public class LogoTest {
 
         Assert.assertTrue(homePage.isUrlLoaded(), "The Home page URL is not loaded!");
 
-        LogoPage logo = new LogoPage(driver);
-        Assert.assertTrue(logo.getLogo().isDisplayed());
-
         Header header = new Header(driver);
+
+        Assert.assertTrue(header.getLogo().isDisplayed());
         header.clickLogin();
 
         LoginPage loginPage = new LoginPage(driver);
         Assert.assertTrue(loginPage.isUrlLoaded());
 
-        Assert.assertTrue(logo.getLogo().isDisplayed());
+        Assert.assertTrue(header.getLogo().isDisplayed());
 
-        logo.clickableLogo();
+        header.clickableLogo();
         header.clickLogo();
 
         Assert.assertTrue(homePage.isUrlLoaded());
@@ -84,17 +79,17 @@ public class LogoTest {
         header.clickProfile();
         profilePage.getProfileTextName(name);
 
-        LogoPage logo = new LogoPage(driver);
-        Assert.assertTrue(logo.getLogo().isDisplayed());
+
+        Assert.assertTrue(header.getLogo().isDisplayed());
 
         header.clickNewPost();
 
-        logo.clickableLogo();
+        header.clickableLogo();
         header.clickLogo();
 
         homePage.isUrlLoaded();
 
-        Assert.assertTrue(logo.getLogo().isDisplayed());
+        Assert.assertTrue(header.getLogo().isDisplayed());
     }
         @Test(dataProvider = "userNames")
         public void afterLogoutTest(String username, String password, String name) {
@@ -122,18 +117,17 @@ public class LogoTest {
             header.clickProfile();
             profilePage.getProfileTextName(name);
 
-            LogoPage logo = new LogoPage(driver);
-            Assert.assertTrue(logo.getLogo().isDisplayed());
+            Assert.assertTrue(header.getLogo().isDisplayed());
 
             header.logoutButton();
             loginPage.isUrlLoaded();
 
 
-            Assert.assertTrue(logo.getLogo().isDisplayed());
+            Assert.assertTrue(header.getLogo().isDisplayed());
             header.clickLogo();
 
             homePage.isUrlLoaded();
-            Assert.assertTrue(logo.getLogo().isDisplayed());
+            Assert.assertTrue(header.getLogo().isDisplayed());
         }
         @AfterMethod
         public void browserClosing () {
