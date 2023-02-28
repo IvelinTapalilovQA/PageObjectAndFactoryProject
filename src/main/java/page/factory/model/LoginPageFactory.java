@@ -16,21 +16,22 @@ public class LoginPageFactory {
     public final WebDriver driver;
 
     @FindBy (xpath = "//p[text()='Sign in']")
-        WebElement signInFormTitle;
+    WebElement signInFormTitle;
 
     @FindBy(id = "defaultLoginFormUsername")
-        WebElement usernameField;
+    WebElement usernameField;
 
     @FindBy(id = "defaultLoginFormPassword")
-        WebElement passwordField;
+    WebElement passwordField;
 
     @FindBy(id = "sign-in-button")
-        WebElement signInButton;
+    WebElement signInButton;
 
     @FindBy (xpath = "//p[text()='Sign in']")
-        WebElement signInTitle;
+    WebElement signInTitle;
+
     @FindBy (xpath = "//*[text()='Register']")
-         WebElement registerLink;
+    WebElement registerLink;
 
     public LoginPageFactory(WebDriver driver) {
         this.driver = driver;
