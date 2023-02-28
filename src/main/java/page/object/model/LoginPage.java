@@ -41,5 +41,16 @@ public class LoginPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         return wait.until(ExpectedConditions.urlToBe(PAGE_URl));
     }
-
+    public void navigateTo(){
+        this.driver.get(PAGE_URl);
+    }
+    public boolean checkLoginTitle(){
+        WebElement signInTitle = driver.findElement(By.xpath("//p[text()='Sign in']"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.visibilityOf(signInTitle)).isDisplayed();
+    }
+    public void clickRegistrationButton(){
+        WebElement registerLink = driver.findElement(By.xpath("//*[text()='Register']"));
+        registerLink.click();
+    }
 }
