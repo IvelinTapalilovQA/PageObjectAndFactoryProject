@@ -1,5 +1,6 @@
 package page.factory.model;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +27,11 @@ public class LoginPageFactory {
     @FindBy(id = "sign-in-button")
         WebElement signInButton;
 
+    @FindBy (xpath = "//p[text()='Sign in']")
+        WebElement signInTitle;
+    @FindBy (xpath = "//*[text()='Register']")
+         WebElement registerLink;
+
     public LoginPageFactory(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -50,4 +56,15 @@ public class LoginPageFactory {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         return wait.until(ExpectedConditions.urlToBe(PAGE_URl));
     }
+    public void navigateTo(){
+        this.driver.get(PAGE_URl);
+    }
+    public boolean checkLoginTitle(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.visibilityOf(signInTitle)).isDisplayed();
+    }
+    public void clickRegistrationButton(){
+        registerLink.click();
+    }
 }
+
